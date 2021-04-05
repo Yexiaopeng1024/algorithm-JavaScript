@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class MyQueue{
+            constructor(){
+                this.v =[]
+            }
+            push(value){
+                this.v.push(value)
+            }
+            pop(value){
+                return this.v.shift(value)
+            }
+            peek(){
+                return this.v[0]
+            }
+            empty(){
+                return this.v.length===0?true:false
+            }
+        }
+    </script>
+</body>
+</html>

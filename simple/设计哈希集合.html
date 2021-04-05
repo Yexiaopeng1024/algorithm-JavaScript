@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class MyHashSet {
+            constructor() {
+                this.hashSet = []
+            }
+            add(n) {
+                if (this.hashSet.indexOf(n) === -1) {
+                    this.hashSet.push(n)
+                } else {
+                    return this.hashSet
+                }
+            }
+            remove(n) {
+                if (this.hashSet.indexOf(n)>=0) {
+                    this.hashSet.splice(this.hashSet.indexOf(n),1)
+                } else {
+                    return this.hashSet
+                }
+            }
+            contains(n) {
+                return this.hashSet.indexOf(n)>=0?true:false
+                }
+            }
+    </script>
+</body>
+</html>
