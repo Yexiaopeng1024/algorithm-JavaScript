@@ -30,7 +30,8 @@
              输入：height = [1,2,1]
              输出：2
              ```JavaScript
-             思路：从左往右，每个挡板能构成的容器等于，这个挡板【索引】减之前挡板【索引】乘以两者较低的挡板高度值
+             关键点：理解抛弃短板是安全的。
+             理解：在指针收缩的过程中，如果a[ i ]是短高，a[ j ]是长高，则以a[ i ]为高的所有容器容积在此时是最大的。换句话讲，[ i, j ]之内不存在以a[i]为高的容器体积比此时还大（从底和高考虑），所以，扔掉a[ i ]是合理的。
 
              双指针法其实是利用已知条件，而针对暴力搜索法实现的优化。
              为求解该问题，一共需要对 n*(n-1)/2 个状态进行比较，暴力搜索法就是单纯的计算每个状态的值，然后一一比较得到最大值。
@@ -68,9 +69,19 @@
                 }
             }
             return max
-        };
-        console.log(maxArea(height))
+        };      
         //双指针优化
+        var maxArea = function (height) {
+            let max = 0
+            let left = 0
+            let right = height.length-1
+            while (left<right) {
+                max=Math.max((height[left]<height[right]?height[left]:height[right])*(right-left),max)
+                height[left]<height[right]?left++:right--           
+            }
+            return max
+        }
+        console.log(maxArea(height))
     </script>
 </body>
 
