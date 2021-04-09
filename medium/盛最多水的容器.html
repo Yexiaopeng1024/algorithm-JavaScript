@@ -76,8 +76,8 @@
             let left = 0
             let right = height.length-1
             while (left<right) {
-                max=Math.max((height[left]<height[right]?height[left]:height[right])*(right-left),max)
-                height[left]<height[right]?left++:right--           
+                max=Math.max((height[left]<height[right]?height[left]:height[right])*(right-left),max)  //判断大小
+                height[left]<height[right]?left++:right--           //移动短板
             }
             return max
         }
