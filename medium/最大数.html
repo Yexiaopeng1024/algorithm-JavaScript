@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../Depend/editormd.preview.css" />
+</head>
+
+<body>
+    <div id="test-markdown-view">
+        <!-- Server-side output Markdown text -->
+        <textarea style="display:none;">
+给定一组非负整数 nums，重新排列每个数的顺序（每个数不可拆分）使之组成一个最大的整数。
+**注意:**  输出结果可能非常大，所以你需要返回一个字符串而不是整数。
+**示例1：**
+**输入：**nums = [10,2]
+**输出：**"210"
+**示例2：**
+**输入：**nums = [3,30,34,5,9]
+**输出：**"9534330"
+**示例3：**
+**输入：**nums = [1]
+**输出：**"1"
+**示例4：**
+**输入：**nums = [10]
+**输出：**"10"
+```JavaScript
+原地算法比较 String b+a - a+b 的大小  如  a = 3  b = 30  a+b = 330 b+a = 303 进行排序
+ ```
+        </textarea>
+    </div>
+    <script src="../Depend/jquery.min.js"></script>
+    <script src="../Depend/editormd.js"></script>
+    <script src="../Depend/marked.min.js"></script>
+    <script src="../Depend/prettify.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            var testView = editormd.markdownToHTML("test-markdown-view", {
+                // markdown : "[TOC]\n### Hello world!\n## Heading 2", // Also, you can dynamic set Markdown text
+                // htmlDecode : true,  // Enable / disable HTML tag encode.
+                // htmlDecode : "style,script,iframe",  // Note: If enabled, you should filter some dangerous HTML tags for website security.
+            });
+        });
+    </script>
+    <!-- 代码 -->
+    <script>
+        const arr = [0,0,0]
+        var largestNumber = function (nums) {
+            let newnums = nums.sort((a,b)=>parseInt(`${b}${a}`,10)- parseInt(`${a}${b}`,10)).join('')
+            return newnums[0]==='0'?'0':newnums
+        }
+        console.log(largestNumber(arr))
+    </script>
+</body>
+
+</html>
